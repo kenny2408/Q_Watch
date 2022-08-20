@@ -8,6 +8,7 @@ from PyQt5.QtWidgets import QApplication
 from q_watch.cartesian_tools import circular_coordinates
 
 
+# noinspection PyAttributeOutsideInit,PyPep8Naming
 class QWatch(QtWidgets.QWidget):
     date_change = QtCore.pyqtSignal(bool)
     meridian_change = QtCore.pyqtSignal(str)
@@ -120,7 +121,7 @@ class QWatch(QtWidgets.QWidget):
             paint.drawLine(QPointF(p1['x'], p1['y']), QPointF(p2['x'], p2['y']))
             paint.drawText(QPointF(p3['x'] - 3, p3['y'] + 3), str(i + 1))
 
-    # noinspection PyPep8Naming,PyMethodMayBeStatic
+    # noinspection PyPep8Naming,PyMethodMayBeStatic,PyUnresolvedReferences
     def _drawHand(self, paint, length, time_unit, cycles, thickness=1, color='#000000'):
         Pen = paint.pen()
         Pen.setWidth(thickness)
@@ -177,7 +178,7 @@ class QWatch(QtWidgets.QWidget):
         self.hr_24 = Hr - 1
 
         if self.hr_24 > 11:
-            self.hr = self.hr_24 -12
+            self.hr = self.hr_24 - 12
             self.meridian_change.emit('PM')
 
         else:
