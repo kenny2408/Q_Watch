@@ -9,7 +9,7 @@
 </div>
 
 
-_**Q_Watch**_ is a simple widget that shows the time but for that you need to start with a thread, luckily there is QTime ⏳ that simplifies a lot with QTime.start(1000) = 1s and with a function QRoj.CorrerTiempo() in the end it was a good one practice the curious thing is that the ToolCartecianas.py module has potential for future projects
+_**Q_Watch**_ is a simple widget that shows the time.
 
 To start the program you need to create a virtual environment and install:
 
