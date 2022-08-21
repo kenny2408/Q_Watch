@@ -61,7 +61,7 @@ class QWatch(QtWidgets.QWidget):
 
         self.CENTER = self.__center()
         # background color
-        self.panel.fill(QtGui.QColor('#2f4f4f'))
+        self.panel.fill(QtGui.QColor('#1A293E'))
         # create panel
         paint = QPainter(self)
         paint.drawPixmap(0, 0, self.panel)
@@ -71,9 +71,9 @@ class QWatch(QtWidgets.QWidget):
     def drawContent(self, paint):
         paint.setRenderHint(QPainter.Antialiasing, True)
         self._drawClockOutline(paint)
-        self._drawHand(paint, self.min_window_length * .35, self.sec, 60, 2, '#e6faf0')
-        self._drawHand(paint, self.min_window_length * .30, self.min, 60, 5, '#e6faf0')
-        self._drawHand(paint, self.min_window_length * .20, self.hr, 12, 7, '#a2b3ab')
+        self._drawHand(paint, self.min_window_length * .35, self.sec, 60, 2, '#8D949F')
+        self._drawHand(paint, self.min_window_length * .30, self.min, 60, 5, '#8D949F')
+        self._drawHand(paint, self.min_window_length * .20, self.hr, 12, 7, '#707986')
 
     def resizeEvent(self, event):
         # redraw on window resize
@@ -96,14 +96,14 @@ class QWatch(QtWidgets.QWidget):
     def _drawClockOutline(self, paint):
         Pen = QtGui.QPen()
         Pen.setWidth(3)
-        Pen.setColor(QtGui.QColor('#a9aac2'))
+        Pen.setColor(QtGui.QColor('#A9AFB7'))
         paint.setPen(Pen)
         paint.drawEllipse(self.__center_dimension(self.min_window_length - 20))
         self.__minute_second(paint)
 
     def __minute_second(self, paint):
         Pen = paint.pen()
-        Pen.setColor(QtGui.QColor('#ffadad'))
+        Pen.setColor(QtGui.QColor('#C6CACF'))
         paint.setPen(Pen)
 
         for i in range(60):
@@ -111,7 +111,7 @@ class QWatch(QtWidgets.QWidget):
             p2 = circular_coordinates(self.CENTER, self.min_window_length * .44, 60, i)
             paint.drawLine(QPointF(p1['x'], p1['y']), QPointF(p2['x'], p2['y']))
 
-        Pen.setColor(QtGui.QColor('#9bf6ff'))
+        Pen.setColor(QtGui.QColor('#535F6E'))
         paint.setPen(Pen)
 
         for i in range(12):
@@ -122,7 +122,7 @@ class QWatch(QtWidgets.QWidget):
             paint.drawText(QPointF(p3['x'] - 3, p3['y'] + 3), str(i + 1))
 
     # noinspection PyPep8Naming,PyMethodMayBeStatic,PyUnresolvedReferences
-    def _drawHand(self, paint, length, time_unit, cycles, thickness=1, color='#000000'):
+    def _drawHand(self, paint, length, time_unit, cycles, thickness=1, color='#707986'):
         Pen = paint.pen()
         Pen.setWidth(thickness)
         Pen.setCapStyle(QtCore.Qt.RoundCap)
